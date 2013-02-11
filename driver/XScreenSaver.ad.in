@@ -245,6 +245,7 @@ GetViewPortIsFullOfLies: False
 -				webcollage -root			    \n\
 				xflame -root				    \n\
 				xmatrix -root				    \n\
+                                xmatriximg -root                            \n\
 @GL_KLUDGE@ GL: 				gflux -root				    \n\
 -				nerverot -root				    \n\
 				xrayswarm -root				    \n\

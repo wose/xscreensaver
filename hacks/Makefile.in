@@ -113,7 +113,7 @@ SRCS		= attraction.c blitspin.c bouboule.c braid.c bubbles.c \
 		  fuzzyflakes.c anemotaxis.c memscroller.c substrate.c \
 		  intermomentary.c fireworkx.c fiberlamp.c \
 		  boxfit.c interaggregate.c celtic.c cwaves.c m6502.c \
-		  asm6502.c abstractile.c lcdscrub.c \
+		  asm6502.c abstractile.c lcdscrub.c xmatriximg.c \
 		  webcollage-cocoa.m webcollage-helper-cocoa.m
 SCRIPTS		= vidwhacker webcollage ljlatest
 
@@ -153,7 +153,7 @@ OBJS		= attraction.o blitspin.o bouboule.o braid.o bubbles.o \
 		  intermomentary.o fireworkx.o fiberlamp.o boxfit.o \
 		  interaggregate.o celtic.o cwaves.o webcollage-cocoa.o \
 		  webcollage-helper-cocoa.o m6502.o asm6502.o abstractile.o \
-		  lcdscrub.o
+		  lcdscrub.o xmatriximg.o
 
 EXES		= attraction blitspin bouboule braid decayscreen deco \
 		  drift flame galaxy grav greynetic halo \
@@ -174,7 +174,7 @@ EXES		= attraction blitspin bouboule braid decayscreen deco \
 		  fontglide apple2 xanalogtv pong  wormhole \
 		  pacman fuzzyflakes anemotaxis memscroller substrate \
 		  intermomentary fireworkx fiberlamp boxfit interaggregate \
-		  celtic cwaves m6502 abstractile lcdscrub \
+		  celtic cwaves m6502 abstractile lcdscrub xmatriximg \
 		  @JPEG_EXES@
 JPEG_EXES	= webcollage-helper
 
@@ -226,7 +226,7 @@ MEN		= anemone.man apollonian.man attraction.man \
 		  anemotaxis.man memscroller.man substrate.man \
 		  intermomentary.man fireworkx.man fiberlamp.man boxfit.man \
 		  interaggregate.man celtic.man cwaves.man abstractile.man \
-		  lcdscrub.man
+		  lcdscrub.man xmatriximg.man
 
 RETIRED_MEN	= ant.man bubbles.man critical.man flag.man forest.man \
 		  laser.man lightning.man lisa.man lissie.man lmorph.man \
@@ -704,6 +704,9 @@ phosphor:	phosphor.o	$(HACK_OBJS) $(TEXT) $(COL)
 	$(CC_HACK) -o $@ $@.o	$(HACK_OBJS) $(TEXT) $(COL) $(HACK_LIBS) $(TEXT_LIBS)
 
 xmatrix:	xmatrix.o	$(HACK_OBJS) $(TEXT) $(XPM)
+	$(CC_HACK) -o $@ $@.o	$(HACK_OBJS) $(TEXT) $(XPM) $(XPM_LIBS) $(TEXT_LIBS)
+
+xmatriximg:	xmatriximg.o	$(HACK_OBJS) $(TEXT) $(XPM)
 	$(CC_HACK) -o $@ $@.o	$(HACK_OBJS) $(TEXT) $(XPM) $(XPM_LIBS) $(TEXT_LIBS)
 
 petri:		petri.o		$(HACK_OBJS) $(COL) $(SPL)
@@ -2764,6 +2767,29 @@ xmatrix.o: $(UTILS_SRC)/usleep.h
 xmatrix.o: $(UTILS_SRC)/visual.h
 xmatrix.o: $(UTILS_SRC)/yarandom.h
 xmatrix.o: $(srcdir)/xpm-pixmap.h
+xmatriximg.o: ../config.h
+xmatriximg.o: $(srcdir)/fps.h
+xmatriximg.o: $(srcdir)/images/matrix1b.xbm
+xmatriximg.o: $(srcdir)/images/matrix1b.xpm
+xmatriximg.o: $(srcdir)/images/matrix1.xbm
+xmatriximg.o: $(srcdir)/images/matrix1.xpm
+xmatriximg.o: $(srcdir)/images/matrix2b.xbm
+xmatriximg.o: $(srcdir)/images/matrix2b.xpm
+xmatriximg.o: $(srcdir)/images/matrix2.xbm
+xmatriximg.o: $(srcdir)/images/matrix2.xpm
+xmatriximg.o: $(srcdir)/images/heart.xbm
+xmatriximg.o: $(srcdir)/images/fawkes.xbm
+xmatriximg.o: $(srcdir)/screenhackI.h
+xmatriximg.o: $(srcdir)/screenhack.h
+xmatriximg.o: $(UTILS_SRC)/colors.h
+xmatriximg.o: $(UTILS_SRC)/grabscreen.h
+xmatriximg.o: $(UTILS_SRC)/hsv.h
+xmatriximg.o: $(UTILS_SRC)/resources.h
+xmatriximg.o: $(UTILS_SRC)/textclient.h
+xmatriximg.o: $(UTILS_SRC)/usleep.h
+xmatriximg.o: $(UTILS_SRC)/visual.h
+xmatriximg.o: $(UTILS_SRC)/yarandom.h
+xmatriximg.o: $(srcdir)/xpm-pixmap.h
 xpm-pixmap.o: ../config.h
 xpm-pixmap.o: $(UTILS_SRC)/visual.h
 xpm-pixmap.o: $(srcdir)/xpm-pixmap.h

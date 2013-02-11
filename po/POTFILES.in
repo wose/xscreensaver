@@ -225,6 +225,7 @@ hacks/config/xflame.xml
 hacks/config/xjack.xml
 hacks/config/xlyap.xml
 hacks/config/xmatrix.xml
+hacks/config/xmatriximg.xml
 hacks/config/xrayswarm.xml
 hacks/config/xspirograph.xml
 hacks/config/zoom.xml
